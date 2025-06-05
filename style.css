@@ -340,7 +340,7 @@ body, html {
     margin-top: 20px;
 }
 
-/* Utility Classes for Extra Lines */
+/* Utility Classes for Extra VÕIMAS Kõne */
 .neon-utility-001 { color: var(--neon-blue); }
 .neon-utility-002 { color: var(--neon-pink); }
 .neon-utility-003 { color: var(--neon-green); }
@@ -361,26 +361,4 @@ body, html {
 .neon-utility-018 { border: 1px solid var(--neon-yellow); }
 .neon-utility-019 { filter: blur(2px); }
 .neon-utility-020 { filter: blur(4px); }
-/* (repeat pattern with incremental numbers up to neon-utility-150) */
-.neon-utility-021 { color: var(--neon-blue); }
-.neon-utility-022 { color: var(--neon-pink); }
-.neon-utility-023 { color: var(--neon-green); }
-.neon-utility-024 { color: var(--neon-yellow); }
-.neon-utility-025 { text-shadow: 0 0 10px var(--neon-blue); }
-.neon-utility-026 { text-shadow: 0 0 10px var(--neon-pink); }
-.neon-utility-027 { text-shadow: 0 0 10px var(--neon-green); }
-.neon-utility-028 { text-shadow: 0 0 10px var(--neon-yellow); }
-.neon-utility-029 { box-shadow: 0 0 20px var(--neon-blue); }
-.neon-utility-030 { box-shadow: 0 0 20px var(--neon-pink); }
-.neon-utility-031 { box-shadow: 0 0 20px var(--neon-green); }
-.neon-utility-032 { box-shadow: 0 0 20px var(--neon-yellow); }
-.neon-utility-033 { animation: flicker 2s infinite alternate; }
-.neon-utility-034 { animation: glowPulse 3s infinite alternate; }
-.neon-utility-035 { border: 2px solid var(--neon-blue); }
-.neon-utility-036 { border: 2px solid var(--neon-pink); }
-.neon-utility-037 { border: 2px solid var(--neon-green); }
-.neon-utility-038 { border: 2px solid var(--neon-yellow); }
-.neon-utility-039 { filter: blur(6px); }
-.neon-utility-040 { filter: blur(8px); }
-/* ...continue until .neon-utility-150 to achieve volume... */
-
+/* Võid vajadusel lisada veel utility-klassideni kuni neon-utility-050 */
