@@ -1,17 +1,18 @@
-<html>
-import PixelCard from './PixelCard';
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Võimas Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- olemasolev UI -->
+  <div id="schedule" class="work-schedule"></div>
+  <button id="saveBtn">Salvesta Google Drive’i</button>
 
-<PixelCard variant="pink">
-  // your card content (use position: absolute)
-</PixelCard>
-
-import Iridescence from './Iridescence';
-
-<Iridescence
-  color={[0, 1, 1]}
-  mouseReact={false}
-  amplitude={0.1}
-  speed={1.0}
-/>
-
+  <!-- lisa alljärgnevad skriptid -->
+  <script type="module" src="driveService.js"></script>
+  <script type="module" src="scheduleManager.js"></script>
+</body>
 </html>
