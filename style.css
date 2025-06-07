@@ -1,0 +1,39 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family: sans-serif }
+body, html { width:100%; height:100% }
+.container { display:flex; height:100vh; }
+.sidebar {
+  width:300px; padding:20px; background:#111; color:#fff; overflow-y:auto;
+}
+.sidebar h2,h3 { margin-bottom:10px }
+.member {
+  width:100%; text-align:left; padding:10px; margin-bottom:5px;
+  background:#222; border:none; color:#0ff; cursor:pointer;
+}
+.member.selected { border:2px solid #0ff; }
+.member span { float:right; font-weight:bold; color:#afa }
+
+.quick-add, .bulk-add {
+  display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:20px;
+}
+.quick-add button, .bulk-add button {
+  padding:10px; background:#222; border:none; color:#ff0; cursor:pointer;
+}
+
+.main {
+  flex:1; padding:20px; background:#222; color:#fff; overflow-y:auto;
+}
+.main h2 { margin-bottom:20px; }
+.schedule {
+  display:flex; flex-direction:column; gap:10px;
+}
+.day-card {
+  background:#333; padding:15px; border-radius:8px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.day-card .day-title { font-weight:bold }
+.actions {
+  margin-top:20px; display:flex; gap:10px;
+}
+.actions button {
+  padding:10px 20px; background:#0a0; border:none; color:#fff; cursor:pointer;
+}
