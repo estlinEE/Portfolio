@@ -1,6 +1,6 @@
 // driveService.js
-// Asenda all URL oma Apps Script Web App URL-iga
-const API_URL = 'https://script.google.com/a/macros/saksa.tln.edu.ee/s/AKfycbxZtgo8EZ9j7qtt6YvdnQt2FrgMNDnXvlfsxN-EYthXwa9IjYpxCMMYxJe95z4tTdgBqg/exec'; 
+const WEB_APP_URL = 'https://script.google.com/a/macros/saksa.tln.edu.ee/s/AKfycbxZtgo8EZ9j7qtt6YvdnQt2FrgMNDnXvlfsxN-EYthXwa9IjYpxCMMYxJe95z4tTdgBqg/exec';  // sinu Apps Script URL
+const API_URL     = 'https://cors-anywhere.herokuapp.com/' + WEB_APP_URL;
 
 export async function loadSchedule() {
   const res = await fetch(API_URL);
@@ -10,9 +10,9 @@ export async function loadSchedule() {
 
 export async function saveSchedule(data) {
   const res = await fetch(API_URL, {
-    method: 'POST',
+    method:  'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    body:    JSON.stringify(data),
   });
   if (!res.ok) throw new Error('Salvestamine ebaõnnestus');
   return await res.json();
