@@ -3,15 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Võimas Portfolio</title>
+  <title>Võimas Portfolio & Schedule</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- olemasolev UI -->
-  <div id="schedule" class="work-schedule"></div>
-  <button id="saveBtn">Salvesta Google Drive’i</button>
+  <div class="container">
+    <!-- Vasak paneel -->
+    <div class="sidebar">
+      <h2>Team Members</h2>
+      <button class="member selected">🔵 Mikey <span>Selected</span></button>
+      <button class="member">🟢 Pringlessman</button>
 
-  <!-- lisa alljärgnevad skriptid -->
+      <h3>⚡ Quick Add Today</h3>
+      <div class="quick-add">
+        <button data-shift="morning">📆 Morning</button>
+        <button data-shift="afternoon">🌞 Afternoon</button>
+        <button data-shift="evening">🌆 Evening</button>
+        <button data-shift="fullday">🗓 Full Day</button>
+        <button data-shift="night">🌙 Night</button>
+      </div>
+
+      <h3>📅 Bulk Add</h3>
+      <div class="bulk-add">
+        <button data-bulk="fullweek">Full Week</button>
+        <button data-bulk="5mornings">5 Mornings</button>
+        <button data-bulk="5afternoons">5 Afternoons</button>
+        <button data-bulk="3evenings">3 Evenings</button>
+      </div>
+    </div>
+
+    <!-- Parem paneel -->
+    <div class="main">
+      <h2>Work Schedule</h2>
+      <div id="schedule" class="schedule"></div>
+      <div class="actions">
+        <button id="saveBtn">Salvesta Google Drive’i</button>
+        <button id="loadBtn">Laadi uuesti</button>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="driveService.js"></script>
   <script type="module" src="scheduleManager.js"></script>
 </body>
