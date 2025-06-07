@@ -1,41 +1,70 @@
-// scheduleManager.jsa
+// scheduleManager.js
 import { loadSchedule, saveSchedule } from './driveService.js';
 
-let schedule = {};
+let schedule = { days: [] };
+const scheduleContainer = document.getElementById('schedule');
+const saveBtn = document.getElementById('saveBtn');
+const loadBtn = document.getElementById('loadBtn');
 
-// pärast lehe laetust
-window.addEventListener('DOMContentLoaded', async () => {
-  try {
-    schedule = await loadSchedule();
-    renderSchedule();
-  } catch (e) {
-    console.error(e);
-  }
-
-  // Salvesta-nupu bind
-  document.getElementById('saveBtn')
-    .addEventListener('click', async () => {
-      try {
-        await saveSchedule(schedule);
-        alert('Salvestatud Google Drive’i!');
-      } catch (e) {
-        alert(e.message);
-      }
-    });
-});
-
-// Lihtne näidis-render
+// render
 function renderSchedule() {
-  const container = document.getElementById('schedule');
-  container.innerHTML = '';  
-  (schedule.days || []).forEach(day => {
+  scheduleContainer.innerHTML = '';
+  schedule.days.forEach(day => {
     const el = document.createElement('div');
     el.className = 'day-card';
     el.innerHTML = `
-      <div class="day-title">${day.date}</div>
-      <div>No availability scheduled</div>
+      <div>
+        <div class="day-title">${day.date} ${day.tag||''}</div>
+        <div>No availability scheduled</div>
+      </div>
+      <div>
+        <span>🗓</span><span>🌞</span><span>🌆</span>
+      </div>
     `;
-    container.appendChild(el);
+    scheduleContainer.appendChild(el);
   });
 }
 
+// load esimesel laadimisel
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const data = await loadSchedule();
+    schedule = data && data.days ? data : schedule;
+  } catch(e) {
+    console.warn(e);
+  }
+  // kui pole andmeid, täida näidisega:
+  if (!schedule.days.length) {
+    schedule.days = [
+      { date:'Sat, Jun 7', tag:'Today' },
+      { date:'Sun, Jun 8', tag:'Tomorrow' },
+      { date:'Mon, Jun 9' },
+      { date:'Tue, Jun 10' },
+      { date:'Wed, Jun 11' },
+      { date:'Thu, Jun 12' },
+    ];
+  }
+  renderSchedule();
+});
+
+// salvesta
+saveBtn.addEventListener('click', async () => {
+  try {
+    await saveSchedule(schedule);
+    alert('Salvestatud Google Drive’i!');
+  } catch(e) {
+    alert(e.message);
+  }
+});
+
+// laadi uuesti
+loadBtn.addEventListener('click', async () => {
+  try {
+    const data = await loadSchedule();
+    schedule = data && data.days ? data : schedule;
+    renderSchedule();
+    alert('Laaditud Google Drive’ist!');
+  } catch(e) {
+    alert(e.message);
+  }
+});
